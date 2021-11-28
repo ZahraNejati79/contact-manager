@@ -1,0 +1,17 @@
+h1 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #b6b5b5;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.formdiv {
+  width: 100%;
+}
+.contacts {
+  margin-top: 20px;
+  width: 35%;
+}
