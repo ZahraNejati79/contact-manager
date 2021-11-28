@@ -24,7 +24,7 @@ const ContactManager = () => {
           <div className={styles.formdiv}>
             <Route
               path="/add"
-              component={(props) => (
+              render={(props) => (
                 <ContactForm addContact={addContactHandler} {...props} />
               )}
             />
@@ -32,7 +32,7 @@ const ContactManager = () => {
           <Route
             exact="true"
             path="/"
-            component={(props) => <ContactList contacts={contacts} />}
+            render={(props) => <ContactList contacts={contacts} />}
           />
         </div>
       </Layout>
