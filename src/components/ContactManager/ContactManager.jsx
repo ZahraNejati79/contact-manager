@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import styles from "./ContactManager.module.css";
+import Layout from "../RouterComponents/Layout";
+import { Route, Switch } from "react-router";
+
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
   const addContactHandler = (contact) => {
@@ -15,18 +18,38 @@ const ContactManager = () => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
   return (
-    <div className={styles.container}>
-      <div className={styles.formdiv}>
-        <h1>Contact Manager</h1>
+    <Switch>
+      <Layout>
+        <div className={styles.container}>
+          <div className={styles.formdiv}>
+            <Route
+              path="/add"
+              component={(props) => (
+                <ContactForm addContact={addContactHandler} {...props} />
+              )}
+            />
+          </div>
+          <Route
+            exact="true"
+            path="/"
+            component={(props) => <ContactList contacts={contacts} />}
+          />
+        </div>
+      </Layout>
+    </Switch>
 
-        <ContactForm addContact={addContactHandler} />
-      </div>
-      <div className={styles.contacts}>
-        {contacts.map((contact) => (
-          <ContactList contact={contact} key={contact.id} />
-        ))}
-      </div>
-    </div>
+    // <div className={styles.container}>
+    //   <div className={styles.formdiv}>
+    //     <h1>Contact Manager</h1>
+
+    //     <ContactForm addContact={addContactHandler} />
+    //   </div>
+    //   <div className={styles.contacts}>
+    //     {contacts.map((contact) => (
+    //       <ContactList contact={contact} key={contact.id} />
+    //     ))}
+    //   </div>
+    // </div>
   );
 };
 

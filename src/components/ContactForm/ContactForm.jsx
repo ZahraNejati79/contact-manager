@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./ContactForm.module.css";
-const ContactForm = ({ addContact }) => {
+const ContactForm = ({ addContact, history }) => {
+  console.log(history);
   const [contact, setContact] = useState({ Name: "", Email: "" });
   const changeHandler = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -9,6 +10,7 @@ const ContactForm = ({ addContact }) => {
     e.preventDefault();
     addContact(contact);
     setContact({ Name: "", Email: "" });
+    history.push("/");
   };
   return (
     <div className={styles.container}>
