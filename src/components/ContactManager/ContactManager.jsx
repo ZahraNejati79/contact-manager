@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import styles from "./ContactManager.module.css";
@@ -7,6 +7,13 @@ const ContactManager = () => {
   const addContactHandler = (contact) => {
     setContacts([...contacts, { id: Math.random() * 100, ...contact }]);
   };
+  useEffect(() => {
+    const saveContacts = JSON.parse(localStorage.getItem("contacts"));
+    if (saveContacts) setContacts(saveContacts);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
   return (
     <div className={styles.container}>
       <div className={styles.formdiv}>

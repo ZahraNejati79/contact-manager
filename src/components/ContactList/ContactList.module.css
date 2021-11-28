@@ -4,6 +4,7 @@
   height: 30px;
   display: flex;
   justify-content: space-between;
+  margin: 5px;
 }
 .trash {
   color: red;
