@@ -1,3 +1,9 @@
+.icon {
+  margin: 5px;
+  border-radius: 50%;
+  background-color: rgb(90, 181, 197);
+  padding: 4px 5px;
+}
 .map {
   margin-top: 20px;
   width: 35%;
@@ -30,9 +36,8 @@
   font-size: small;
   padding-left: 3px;
 }
-.icon {
-  margin: 5px;
-  border-radius: 50%;
-  background-color: rgb(90, 181, 197);
-  padding: 4px 5px;
+button {
+  background-color: rgb(253, 247, 247);
+  outline: none;
+  border: none;
 }
