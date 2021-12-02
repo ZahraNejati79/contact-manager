@@ -4,6 +4,7 @@ import ContactList from "../ContactList/ContactList";
 import styles from "./ContactManager.module.css";
 import Layout from "../RouterComponents/Layout";
 import { Route, Switch } from "react-router";
+import ContactDetail from "../ContactList/ContactDetail/ContactDetail";
 
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
@@ -21,6 +22,7 @@ const ContactManager = () => {
     <Switch>
       <Layout>
         <div className={styles.container}>
+          <Route path="/usr/:id" component={ContactDetail} />
           <div className={styles.formdiv}>
             <Route
               path="/add"
@@ -30,7 +32,7 @@ const ContactManager = () => {
             />
           </div>
           <Route
-            exact="true"
+            exact={true}
             path="/"
             render={(props) => <ContactList contacts={contacts} />}
           />

@@ -10,7 +10,7 @@ const Contact = ({ contact }) => {
         <div className={styles.icon}>
           <FaUser />
         </div>
-        <Link to={`usr/:${id}`}>
+        <Link to={{ pathname: `/usr/${id}`, state: { contact: contact } }}>
           <div className={styles.nameEmail}>
             <span>{contact.Name}</span>
             <span>{contact.Email}</span>
