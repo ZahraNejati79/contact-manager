@@ -5,15 +5,20 @@ import styles from "./ContactManager.module.css";
 import Layout from "../RouterComponents/Layout";
 import { Route, Switch } from "react-router";
 import ContactDetail from "../ContactList/ContactDetail/ContactDetail";
-
+import axios from "axios";
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
   const addContactHandler = (contact) => {
     setContacts([...contacts, { id: Math.random() * 100, ...contact }]);
   };
   useEffect(() => {
-    const saveContacts = JSON.parse(localStorage.getItem("contacts"));
-    if (saveContacts) setContacts(saveContacts);
+    // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
+    // if (saveContacts) setContacts(saveContacts);
+    const getContacts = async ()=>{
+    const {data} = await axios.get("http://localhost:3001/contacts");
+    setContacts(data);
+    }
+    getContacts();
   }, []);
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
