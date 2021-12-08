@@ -1,39 +1,52 @@
 import { useEffect, useState } from "react";
+import { getData } from "../../services/getContactServices";
+import deleteOneContact from "../../services/delateContactService";
+import contactPost from "../../services/addContactServices"
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import styles from "./ContactManager.module.css";
 import Layout from "../RouterComponents/Layout";
 import { Route, Switch } from "react-router";
 import ContactDetail from "../ContactList/ContactDetail/ContactDetail";
-import { getData } from "../../services/getContactServices";
 
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
-  const addContactHandler = (contact) => {
+
+
+  const addContactHandler =async (contact) => {
+   
+   try {
     setContacts([...contacts, { id: Math.random() * 100, ...contact }]);
+await contactPost( { id: Math.random() * 100, ...contact })
+   } catch (error) {
+     console.log(error)
+   }
   };
+
   useEffect(() => {
     // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
     // if (saveContacts) setContacts(saveContacts);
     const getContacts = async ()=>{
     const {data} = await getData()
-    setContacts(data);
+    setContacts([...contacts,...data]);
     }
-    try {
-      getContacts();
-    } catch (error) {
-     console.log(error) 
-    }
+    getContacts()
   
   }, []);
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-  const deleteContact =(id)=>{
-    const deletecontact = async()=>{
-      const {data}= delteOneContact(id);
+
+
+
+
+  const deleteContact =async(id)=>{
+    try {
+      await deleteOneContact(id)
+      const filtered = contacts.filter((c)=>c.id != id)
+      setContacts(filtered)
+    } catch (error) {
+      console.log(error)
     }
   }
+  
   return (
     <Switch>
       <Layout>

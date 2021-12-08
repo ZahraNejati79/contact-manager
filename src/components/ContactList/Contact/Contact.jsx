@@ -17,7 +17,7 @@ const Contact = ({ contact ,deleteHandler }) => {
           </div>
         </Link>
       </div>
-      <button className={styles.trash} onClick={deleteHandler}>
+      <button className={styles.trash} onClick={()=>deleteHandler(contact.id)}>
         <FiTrash2 />
       </button>
     </div>
