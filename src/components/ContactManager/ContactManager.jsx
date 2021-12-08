@@ -5,7 +5,8 @@ import styles from "./ContactManager.module.css";
 import Layout from "../RouterComponents/Layout";
 import { Route, Switch } from "react-router";
 import ContactDetail from "../ContactList/ContactDetail/ContactDetail";
-import axios from "axios";
+import { getData } from "../../services/getContactServices";
+
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
   const addContactHandler = (contact) => {
@@ -15,14 +16,24 @@ const ContactManager = () => {
     // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
     // if (saveContacts) setContacts(saveContacts);
     const getContacts = async ()=>{
-    const {data} = await axios.get("http://localhost:3001/contacts");
+    const {data} = await getData()
     setContacts(data);
     }
-    getContacts();
+    try {
+      getContacts();
+    } catch (error) {
+     console.log(error) 
+    }
+  
   }, []);
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+  const deleteContact =(id)=>{
+    const deletecontact = async()=>{
+      const {data}= delteOneContact(id);
+    }
+  }
   return (
     <Switch>
       <Layout>
@@ -39,7 +50,7 @@ const ContactManager = () => {
           <Route
             exact={true}
             path="/"
-            render={(props) => <ContactList contacts={contacts} />}
+            render={(props) => <ContactList contacts={contacts} deleteHandler={deleteContact}/>}
           />
         </div>
       </Layout>

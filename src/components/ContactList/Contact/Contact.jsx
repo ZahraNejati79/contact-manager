@@ -2,7 +2,7 @@ import { FaUser } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import styles from "../ContactList.module.css";
-const Contact = ({ contact }) => {
+const Contact = ({ contact ,deleteHandler }) => {
   const id = contact.id;
   return (
     <div key={id} className={styles.contactTrash}>
@@ -17,7 +17,7 @@ const Contact = ({ contact }) => {
           </div>
         </Link>
       </div>
-      <button className={styles.trash}>
+      <button className={styles.trash} onClick={deleteHandler}>
         <FiTrash2 />
       </button>
     </div>
