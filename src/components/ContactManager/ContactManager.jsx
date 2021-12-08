@@ -16,8 +16,8 @@ const ContactManager = () => {
   const addContactHandler =async (contact) => {
    
    try {
-    setContacts([...contacts, { id: Math.random() * 100, ...contact }]);
-await contactPost( { id: Math.random() * 100, ...contact })
+    const {data} = await contactPost( contact)
+    setContacts([...contacts,data]);
    } catch (error) {
      console.log(error)
    }
