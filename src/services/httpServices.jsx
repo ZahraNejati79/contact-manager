@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL="http://localhost:3001/"
+axios.defaults.baseURL = "http://localhost:3001/";
 
 // axios.interceptors.response.use (
 //     (response)=>{
@@ -21,12 +21,11 @@ axios.defaults.baseURL="http://localhost:3001/"
 //         return(error)
 //     }
 // )
-const http ={
-    get :axios.get,
-    post:axios.post,
-    delete:axios.delete,
-    post:axios.post,
-    put:axios.put
-    
-}
-export default http
+const http = {
+  get: axios.get,
+  post: axios.post,
+  delete: axios.delete,
+  post: axios.post,
+  put: axios.put,
+};
+export default http;
