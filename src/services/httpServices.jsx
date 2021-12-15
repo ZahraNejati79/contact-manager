@@ -26,6 +26,7 @@ const http ={
     post:axios.post,
     delete:axios.delete,
     post:axios.post,
+    put:axios.put
     
 }
 export default http

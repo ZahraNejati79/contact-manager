@@ -41,3 +41,12 @@ button {
   outline: none;
   border: none;
 }
+.iconList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit {
+  color: rgb(7, 176, 206);
+  font-size: 1.2rem;
+}

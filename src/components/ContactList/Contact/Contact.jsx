@@ -1,5 +1,6 @@
 import { FaUser } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
+import { VscEdit } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import styles from "../ContactList.module.css";
 const Contact = ({ contact ,deleteHandler }) => {
@@ -17,9 +18,14 @@ const Contact = ({ contact ,deleteHandler }) => {
           </div>
         </Link>
       </div>
+      <div className={styles.iconList}>
       <button className={styles.trash} onClick={()=>deleteHandler(contact.id)}>
         <FiTrash2 />
       </button>
+      <Link to={`/edit/${id}`}>
+      <button className={styles.edit}><VscEdit/></button>
+      </Link>
+      </div>
     </div>
   );
 };

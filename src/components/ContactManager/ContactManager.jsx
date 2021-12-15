@@ -8,13 +8,14 @@ import styles from "./ContactManager.module.css";
 import Layout from "../RouterComponents/Layout";
 import { Route, Switch } from "react-router";
 import ContactDetail from "../ContactList/ContactDetail/ContactDetail";
+import ContactEdit from "../ContactEdit/ContactEdit";
+import updateContact from "../../services/updateContactService";
 
 const ContactManager = () => {
   const [contacts, setContacts] = useState([]);
 
 
   const addContactHandler =async (contact) => {
-   
    try {
     const {data} = await contactPost( contact)
     setContacts([...contacts,data]);
@@ -35,7 +36,15 @@ const ContactManager = () => {
   }, []);
 
 
-
+  const editContactHandler = async(contact ,id)=>{
+    try {
+      await updateContact(id,contact)
+      const {data}= await getData()
+      setContacts(data)
+    } catch (error) {
+      
+    }
+  }
 
   const deleteContact =async(id)=>{
     try {
@@ -60,6 +69,10 @@ const ContactManager = () => {
               )}
             />
           </div>
+          <Route path="/edit/:id" 
+           render={(props) => (
+            <ContactEdit editContact={editContactHandler} {...props} />
+          )}/>
           <Route
             exact={true}
             path="/"
