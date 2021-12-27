@@ -45,6 +45,7 @@ const ContactList = ({ setCount }) => {
     try {
       await deleteOneContact(id);
       const { data } = await getData();
+      setCount(data.length);
       setContacts(data);
     } catch (error) {
       console.log(error);

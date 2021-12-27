@@ -51,10 +51,9 @@ button {
   font-size: 1.2rem;
 } */
 .contact {
+  min-height: 50px;
   background-color: rgb(254, 255, 255);
-  border: 2px solid rgb(177, 197, 197);
-  border-radius: 50px 50px 50px 50px;
-  margin: 10px;
+  border-bottom: 2px solid rgb(177, 197, 197);
   display: flex;
   justify-content: space-between;
   padding: 10px 20px 10px 25px;

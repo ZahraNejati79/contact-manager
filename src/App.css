@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
 }
+
 .footer {
   display: flex;
   justify-content: space-evenly;
@@ -11,10 +12,12 @@
   min-height: 5vh;
   position: fixed;
   bottom: 0;
-  background-color: rebeccapurple;
+  background-color: rgb(254, 255, 255);
 }
 
 .btnF {
+  text-decoration: none;
+  border: none;
   height: 5vh;
-  width: 50vw;
+  width: 45vw;
 }

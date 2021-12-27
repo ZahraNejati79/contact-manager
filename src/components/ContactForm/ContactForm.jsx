@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import postContact from "../../services/addContactServices";
 import { getData } from "../../services/getContactServices";
 
@@ -45,6 +46,9 @@ const ContactForm = ({ history }) => {
         </div>
         <button type="submit" className="styles.add">
           Add
+        </button>
+        <button>
+          <NavLink to="/">Contact list</NavLink>
         </button>
       </form>
     </div>
