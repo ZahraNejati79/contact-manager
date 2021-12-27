@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getData } from "../../services/getContactServices";
 import deleteOneContact from "../../services/delateContactService";
 
-const ContactList = () => {
+const ContactList = (props) => {
   const [contacts, setContacts] = useState(null);
   const [allContacts, setAllContacts] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +15,9 @@ const ContactList = () => {
     const getContacts = async () => {
       try {
         const { data } = await getData();
+        console.log("list", data);
         setContacts(data);
+        setAllContacts(data);
       } catch (error) {
         console.log(error);
       }

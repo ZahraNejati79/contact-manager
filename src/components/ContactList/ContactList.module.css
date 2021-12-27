@@ -1,4 +1,4 @@
-.icon {
+/* .icon {
   margin: 5px;
   border-radius: 50%;
   background-color: rgb(90, 181, 197);
@@ -49,4 +49,54 @@ button {
 .edit {
   color: rgb(7, 176, 206);
   font-size: 1.2rem;
+} */
+.contact {
+  background-color: rgb(254, 255, 255);
+  border: 2px solid rgb(177, 197, 197);
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.user div {
+  margin-right: 10px;
+}
+.userIcon {
+  color: red;
+  border: 1px solid res;
+}
+.nameEamil {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: black;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.icons button {
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  font-size: large;
+  border-radius: 100%;
+  margin: 2px 5px;
+}
+.trash {
+  color: red;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
 }

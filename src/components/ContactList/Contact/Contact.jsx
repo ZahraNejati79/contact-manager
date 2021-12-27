@@ -6,19 +6,19 @@ import styles from "../ContactList.module.css";
 const Contact = ({ contact, deleteHandler }) => {
   const id = contact.id;
   return (
-    <div key={id} className={styles.contactTrash}>
-      <div className={styles.contact}>
-        <div className={styles.icon}>
-          <FaUser />
+    <div key={id} className={styles.contact}>
+      <div className={styles.user}>
+        <div>
+          <FaUser calssName={styles.userIcon} />
         </div>
         <Link to={{ pathname: `/usr/${id}`, state: { contact: contact } }}>
-          <div className={styles.nameEmail}>
+          <div className={styles.nameEamil}>
             <span>{contact.Name}</span>
             <span>{contact.Email}</span>
           </div>
         </Link>
       </div>
-      <div className={styles.iconList}>
+      <div className={styles.icons}>
         <button
           className={styles.trash}
           onClick={() => deleteHandler(contact.id)}
@@ -26,7 +26,7 @@ const Contact = ({ contact, deleteHandler }) => {
           <FiTrash2 />
         </button>
         <Link to={`/edit/${id}`}>
-          <button className={styles.edit}>
+          <button calssName={styles.edit}>
             <VscEdit />
           </button>
         </Link>

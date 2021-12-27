@@ -1,10 +1,19 @@
 import { useState } from "react";
+import postContact from "../../services/addContactServices";
+import { getData } from "../../services/getContactServices";
+
 import styles from "./ContactForm.module.css";
-const ContactForm = ({ addContact, history }) => {
-  console.log(history);
+const ContactForm = ({ history }) => {
   const [contact, setContact] = useState({ Name: "", Email: "" });
   const changeHandler = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+  const addContact = async (contact) => {
+    try {
+      await postContact(contact);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const submitForm = (e) => {
     e.preventDefault();
@@ -34,7 +43,9 @@ const ContactForm = ({ addContact, history }) => {
             value={contact.Email}
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" className="styles.add">
+          Add
+        </button>
       </form>
     </div>
   );

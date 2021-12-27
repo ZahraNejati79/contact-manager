@@ -12,34 +12,8 @@ import ContactEdit from "../ContactEdit/ContactEdit";
 import updateContact from "../../services/updateContactService";
 
 const ContactManager = () => {
-  const [contacts, setContacts] = useState([]);
-
-  const addContactHandler = async (contact) => {
-    try {
-      const { data } = await contactPost(contact);
-      setContacts([...contacts, data]);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
-    // if (saveContacts) setContacts(saveContacts);
-    const getContacts = async () => {
-      const { data } = await getData();
-      setContacts([...contacts, ...data]);
-    };
-    getContacts();
-  }, []);
-
-  const editContactHandler = async (contact, id) => {
-    try {
-      await updateContact(id, contact);
-      const { data } = await getData();
-      setContacts(data);
-    } catch (error) {}
-  };
+  // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
+  // if (saveContacts) setContacts(saveContacts);
 
   return (
     <Switch>
@@ -47,18 +21,11 @@ const ContactManager = () => {
         <div className={styles.container}>
           <Route path="/usr/:id" component={ContactDetail} />
           <div className={styles.formdiv}>
-            <Route
-              path="/add"
-              render={(props) => (
-                <ContactForm addContact={addContactHandler} {...props} />
-              )}
-            />
+            <Route path="/add" render={(props) => <ContactForm {...props} />} />
           </div>
           <Route
             path="/edit/:id"
-            render={(props) => (
-              <ContactEdit editContact={editContactHandler} {...props} />
-            )}
+            render={(props) => <ContactEdit {...props} />}
           />
           <Route
             exact={true}
