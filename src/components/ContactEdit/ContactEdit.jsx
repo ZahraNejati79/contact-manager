@@ -1,8 +1,5 @@
 import styles from "../ContactForm/ContactForm.module.css";
 import { useEffect, useState } from "react";
-import deleteOneContact from "../../services/delateContactService";
-import postContact from "../../services/addContactServices";
-import { getData } from "../../services/getContactServices";
 import updateContact from "../../services/updateContactService";
 import getOneContact from "../../services/getOneContactServices";
 const ContactEdit = ({ match, history }) => {

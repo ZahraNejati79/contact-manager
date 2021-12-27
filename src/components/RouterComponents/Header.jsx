@@ -1,9 +1,7 @@
-import Navigation from "./Navigation";
-
-const Header = () => {
+const Header = ({ count }) => {
   return (
     <header>
-      <Navigation />
+      <h1>Contacts : {count}</h1>
     </header>
   );
 };

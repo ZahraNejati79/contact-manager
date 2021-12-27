@@ -3,3 +3,18 @@
   width: 100vw;
   height: 100vh;
 }
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  max-height: 20px;
+  min-height: 5vh;
+  position: fixed;
+  bottom: 0;
+  background-color: rebeccapurple;
+}
+
+.btnF {
+  height: 5vh;
+  width: 50vw;
+}

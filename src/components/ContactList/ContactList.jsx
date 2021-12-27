@@ -1,12 +1,11 @@
 import styles from "./ContactList.module.css";
-import { FaUser } from "react-icons/fa";
-import { FiTrash2 } from "react-icons/fi";
+import { ImSearch } from "react-icons/im";
 import Contact from "./Contact/Contact";
 import { useEffect, useState } from "react";
 import { getData } from "../../services/getContactServices";
 import deleteOneContact from "../../services/delateContactService";
 
-const ContactList = (props) => {
+const ContactList = ({ setCount }) => {
   const [contacts, setContacts] = useState(null);
   const [allContacts, setAllContacts] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,6 +15,7 @@ const ContactList = (props) => {
       try {
         const { data } = await getData();
         console.log("list", data);
+        setCount(data.length);
         setContacts(data);
         setAllContacts(data);
       } catch (error) {
@@ -54,8 +54,14 @@ const ContactList = (props) => {
   return (
     <div className={styles.map}>
       <div>
-        <div>
-          <input type="text" value={searchTerm} onChange={searchHandler} />
+        <div className={styles.inputBorder}>
+          <input
+            placeholder="Search users ..."
+            type="text"
+            value={searchTerm}
+            onChange={searchHandler}
+            className={styles.search}
+          />
         </div>
         {contacts ? (
           contacts.map((c) => (

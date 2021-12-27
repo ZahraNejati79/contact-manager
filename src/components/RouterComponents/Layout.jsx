@@ -1,11 +1,13 @@
+import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, count }) => {
   return (
     <>
-      <Header />
+      <Header count={count} />
       {children}
-      <footer>footer</footer>
+
+      <Footer />
     </>
   );
 };

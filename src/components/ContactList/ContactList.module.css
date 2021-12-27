@@ -53,11 +53,11 @@ button {
 .contact {
   background-color: rgb(254, 255, 255);
   border: 2px solid rgb(177, 197, 197);
-  border-radius: 5px;
+  border-radius: 50px 50px 50px 50px;
   margin: 10px;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 20px 10px 25px;
 }
 .user {
   display: flex;
@@ -99,4 +99,18 @@ button {
 a:-webkit-any-link {
   text-decoration: none;
   color: inherit;
+}
+.search {
+  width: 95vw;
+  border: 1px solid gray;
+  border-radius: 50px 50px 50px 50px;
+  padding: 10px 5px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid rebeccapurple;
+}
+.inputBorder {
+  border-bottom: 2px solid gray;
+  padding-bottom: 20px;
 }
