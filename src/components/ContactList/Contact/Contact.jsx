@@ -8,8 +8,8 @@ const Contact = ({ contact, deleteHandler }) => {
   return (
     <div key={id} className={styles.contact}>
       <div className={styles.user}>
-        <div>
-          <FaUser calssName={styles.userIcon} />
+        <div calssName={styles.userIcon}>
+          <FaUser />
         </div>
         <Link to={{ pathname: `/usr/${id}`, state: { contact: contact } }}>
           <div className={styles.nameEamil}>

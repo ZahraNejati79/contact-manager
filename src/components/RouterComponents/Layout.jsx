@@ -1,10 +1,8 @@
 import Footer from "./Footer";
-import Header from "./Header";
 
-const Layout = ({ children, count }) => {
+const Layout = ({ children }) => {
   return (
     <>
-      <Header count={count} />
       {children}
 
       <Footer />

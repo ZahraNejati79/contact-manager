@@ -11,7 +11,7 @@ import ContactEdit from "../ContactEdit/ContactEdit";
 const ContactManager = () => {
   // const saveContacts = JSON.parse(localStorage.getItem("contacts"));
   // if (saveContacts) setContacts(saveContacts);
-  const [count, setCount] = useState(0);
+
   // useEffect(() => {
   //   const getdataa = async () => {
   //     const { data } = await getData();
@@ -23,7 +23,7 @@ const ContactManager = () => {
 
   return (
     <Switch>
-      <Layout count={count}>
+      <Layout>
         <div className={styles.container}>
           <Route path="/usr/:id" component={ContactDetail} />
           <div className={styles.formdiv}>
@@ -36,7 +36,7 @@ const ContactManager = () => {
           <Route
             exact={true}
             path="/"
-            render={(props) => <ContactList {...props} setCount={setCount} />}
+            render={(props) => <ContactList {...props} />}
           />
         </div>
       </Layout>

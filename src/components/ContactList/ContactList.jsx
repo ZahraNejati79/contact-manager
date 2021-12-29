@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { getData } from "../../services/getContactServices";
 import deleteOneContact from "../../services/delateContactService";
 
-const ContactList = ({ setCount }) => {
+const ContactList = () => {
   const [contacts, setContacts] = useState(null);
   const [allContacts, setAllContacts] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const getContacts = async () => {
@@ -54,7 +55,8 @@ const ContactList = ({ setCount }) => {
 
   return (
     <div className={styles.map}>
-      <div>
+      <div className={styles.allscreen}>
+        <h1>Contacts : {count}</h1>
         <div className={styles.inputBorder}>
           <input
             placeholder="Search users ..."

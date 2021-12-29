@@ -51,6 +51,7 @@ button {
   font-size: 1.2rem;
 } */
 .contact {
+  font-size: 1rem;
   min-height: 50px;
   background-color: rgb(254, 255, 255);
   border-bottom: 2px solid rgb(177, 197, 197);
@@ -65,10 +66,7 @@ button {
 .user div {
   margin-right: 10px;
 }
-.userIcon {
-  color: red;
-  border: 1px solid res;
-}
+
 .nameEamil {
   display: flex;
   list-style: none;
@@ -112,4 +110,27 @@ input:focus {
 .inputBorder {
   border-bottom: 2px solid gray;
   padding-bottom: 20px;
+}
+@media only screen and (min-width: 700px) {
+  .contact {
+    font-size: 1rem;
+    width: 35vw;
+    background-color: rgb(254, 255, 255);
+    border-bottom: 2px solid rgb(177, 197, 197);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 10px 25px;
+  }
+  .search {
+    width: 35vw;
+    border: 1px solid gray;
+    border-radius: 50px 50px 50px 50px;
+    padding: 10px 5px;
+  }
+  .allscreen {
+    position: fixed;
+    left: 0;
+    border-right: 1px solid black;
+    height: 100vh;
+  }
 }
